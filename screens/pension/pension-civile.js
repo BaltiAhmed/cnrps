@@ -1,10 +1,14 @@
-import React, { useState } from "react";
-import { View, Button, Image, Text, StyleSheet, Alert } from "react-native";
+import React, { useState, useContext } from "react";
+import { View, Image, Text, StyleSheet, Alert, ScrollView } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
+import { H2, Button } from "native-base";
+import { Authcontext } from "../../context/auth-context";
+import mime from "mime";
 
 const PensionCivile = (props) => {
-  const [pickedImage, setPickedImage] = useState();
+  const [MiseRetraite, setMiseRetraite] = useState();
+  const [ReleveService, setReleveService] = useState();
 
   const verifyPermissions = async () => {
     const result = await Permissions.askAsync(
@@ -22,32 +26,153 @@ const PensionCivile = (props) => {
     return true;
   };
 
-  const takeImageHandler = async () => {
+  const takeMiseRetraite = async () => {
     const hasPermission = await verifyPermissions();
     if (!hasPermission) {
       return;
     }
-    const image = await ImagePicker.launchImageLibraryAsync({
+    const image1 = await ImagePicker.launchImageLibraryAsync({
       allowsEditing: true,
       aspect: [4, 3],
       quality: 1,
     });
 
-    setPickedImage(image.uri);
-    props.onImageTaken(image.uri);
+    setMiseRetraite(image1);
+    props.onImageTaken(image1.uri);
+  };
+
+  const takeReleveService = async () => {
+    const hasPermission = await verifyPermissions();
+    if (!hasPermission) {
+      return;
+    }
+    const image2 = await ImagePicker.launchImageLibraryAsync({
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    setReleveService(image2);
+    props.onImageTaken(image2.uri);
+  };
+
+  const auth = useContext(Authcontext);
+
+  const uploadReleveService = async (id) => {
+    const url = `http://192.168.1.185:5000/api/pensioncivile/uploadReleveService/${id}`;
+    const fileUri = ReleveService.uri;
+    const newImageUri = "file:///" + fileUri.split("file:/").join("");
+    const formData = new FormData();
+    formData.append("image", {
+      uri: newImageUri,
+      type: mime.getType(newImageUri),
+      name: newImageUri.split("/").pop(),
+    });
+    const options = {
+      method: "PATCH",
+      body: formData,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "multipart/form-data",
+      },
+    };
+    console.log(formData);
+
+    let response = await fetch(url, options);
+
+    if (!response.ok) {
+      let responsedata = await response.json();
+      Alert.alert("Message", responsedata.message, [{ text: "fermer" }]);
+      throw new Error(responsedata.message);
+    }
+  };
+
+  const postDocument = async () => {
+    const url = "http://192.168.1.185:5000/api/pensioncivile/ajout";
+    const fileUri = MiseRetraite.uri;
+    const newImageUri = "file:///" + fileUri.split("file:/").join("");
+    const formData = new FormData();
+    formData.append("image1", {
+      uri: newImageUri,
+      type: mime.getType(newImageUri),
+      name: newImageUri.split("/").pop(),
+    });
+    formData.append("utilisateurId", auth.userId);
+    const options = {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "multipart/form-data",
+      },
+    };
+    console.log(formData);
+
+    let response = await fetch(url, options);
+
+    if (!response.ok) {
+      let responsedata = await response.json();
+      Alert.alert("Message", responsedata.message, [{ text: "fermer" }]);
+      throw new Error(responsedata.message);
+    }
+    let responsedata = await response.json();
+
+    const id = responsedata.PensionC._id;
+
+    console.log(id);
+
+    uploadReleveService(id);
+
+    Alert.alert("Message", "Votre demande est enregistré", [
+      { text: "fermer" },
+    ]);
   };
 
   return (
-    <View style={styles.imagePicker}>
-      <View style={styles.imagePreview}>
-        {!pickedImage ? (
-          <Text>No image picked yet.</Text>
-        ) : (
-          <Image style={styles.image} source={{ uri: pickedImage }} />
-        )}
+    <ScrollView>
+      <View style={styles.imagePicker}>
+        <H2>Choisir Vos fichier image</H2>
+        <Button
+          bordered
+          title="Choisir une image"
+          color="#4a148c"
+          onPress={takeMiseRetraite}
+        >
+          <Text>Choisir une image</Text>
+        </Button>
+        <View style={styles.imagePreview}>
+          {!MiseRetraite ? (
+            <Text>image de la dicision mise en retraite.</Text>
+          ) : (
+            <Image style={styles.image} source={{ uri: MiseRetraite.uri }} />
+          )}
+        </View>
+
+        <Button
+          bordered
+          title="Choisir une image"
+          color="#4a148c"
+          onPress={takeReleveService}
+        >
+          <Text>Choisir une image</Text>
+        </Button>
+        <View style={styles.imagePreview}>
+          {!ReleveService ? (
+            <Text>image de relevé de service.</Text>
+          ) : (
+            <Image style={styles.image} source={{ uri: ReleveService.uri }} />
+          )}
+        </View>
+        <Button
+          block
+          onPress={() => {
+            postDocument();
+          }}
+        >
+          <Text>Envoyer</Text>
+        </Button>
       </View>
-      <Button title="Take Image" color="#4a148c" onPress={takeImageHandler} />
-    </View>
+    </ScrollView>
   );
 };
 

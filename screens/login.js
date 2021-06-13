@@ -15,23 +15,28 @@ import Card from "../components/Card";
 import { Spinner } from "native-base";
 import { Authcontext } from "../context/auth-context";
 import { useContext } from "react";
+import Error from "../models/error";
+import Success from "../models/success";
+import ToastType from "../models/error";
 
 const Login = (props) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [error, seterror] = useState(null);
+  const [success, setsuccess] = useState(null);
   const [loading, setLoading] = useState(false);
-  
-  const auth = useContext(Authcontext)
-  
+
+  const auth = useContext(Authcontext);
+
   const submit = async () => {
     console.log(email);
     console.log(password);
-    auth.login('1','154545')
 
     setLoading(true);
-    try {
-      let response = await fetch("", {
+
+    let response = await fetch(
+      "http://192.168.1.185:5000/api/utilisateur/login",
+      {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -40,24 +45,30 @@ const Login = (props) => {
           email: email,
           password: password,
         }),
-      });
-      let responsedata = await response.json();
-      if (!response.ok) {
-        throw new Error(responsedata.message);
       }
+    );
+
+    if (!response.ok) {
+      let responsedata = await response.json();
+      Alert.alert(
+        'Message',
+        responsedata.message,
+        [{ text: 'fermer' }]
+      );
       setLoading(false);
-      Alert.alert("Message", "valid", [{ text: "fermer" }]);
-      auth.login('1','154545')
-    } catch (err) {
-      console.log(err);
-      seterror(err.message || "probleme!!");
-      setLoading(false);
-      Alert.alert("Message", error, [{ text: "fermer" }]);
+      throw new Error(responsedata.message);
     }
+
+    let responsedata = await response.json();
+    setLoading(false);
+    console.log(responsedata.utilisateur._id)
+    auth.login(responsedata.utilisateur._id, responsedata.token);
   };
   return (
     <Card style={styles.authContainer}>
+      
       {loading && <Spinner />}
+      <ToastType/>
       <ScrollView>
         <View style={styles.formControl}>
           <Text style={styles.label}>Email</Text>
