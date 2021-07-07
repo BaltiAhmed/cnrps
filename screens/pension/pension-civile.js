@@ -5,6 +5,7 @@ import * as Permissions from "expo-permissions";
 import { H2, Button } from "native-base";
 import { Authcontext } from "../../context/auth-context";
 import mime from "mime";
+import IconAntDesign from "react-native-vector-icons/AntDesign";
 
 const PensionCivile = (props) => {
   const [MiseRetraite, setMiseRetraite] = useState();
@@ -132,14 +133,7 @@ const PensionCivile = (props) => {
     <ScrollView>
       <View style={styles.imagePicker}>
         <H2>Choisir Vos fichier image</H2>
-        <Button
-          bordered
-          title="Choisir une image"
-          color="#4a148c"
-          onPress={takeMiseRetraite}
-        >
-          <Text>Choisir une image</Text>
-        </Button>
+
         <View style={styles.imagePreview}>
           {!MiseRetraite ? (
             <Text>image de la dicision mise en retraite.</Text>
@@ -147,15 +141,14 @@ const PensionCivile = (props) => {
             <Image style={styles.image} source={{ uri: MiseRetraite.uri }} />
           )}
         </View>
+        <IconAntDesign
+          name="upload"
+          size={30}
+          color="#2196f3"
+          onPress={takeMiseRetraite}
+        />
+        <Text>Choisir l'image de mise en retraite</Text>
 
-        <Button
-          bordered
-          title="Choisir une image"
-          color="#4a148c"
-          onPress={takeReleveService}
-        >
-          <Text>Choisir une image</Text>
-        </Button>
         <View style={styles.imagePreview}>
           {!ReleveService ? (
             <Text>image de relevé de service.</Text>
@@ -163,7 +156,15 @@ const PensionCivile = (props) => {
             <Image style={styles.image} source={{ uri: ReleveService.uri }} />
           )}
         </View>
+        <IconAntDesign
+          name="upload"
+          size={30}
+          color="#2196f3"
+          onPress={takeReleveService}
+        />
+        <Text>Choisir l'image de relevé service</Text>
         <Button
+          style={{ marginTop: 20 }}
           block
           onPress={() => {
             postDocument();
@@ -186,13 +187,14 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   imagePreview: {
-    width: "100%",
-    height: 400,
+    width: "80%",
+    height: 200,
     marginBottom: 10,
     justifyContent: "center",
     alignItems: "center",
     borderColor: "#ccc",
     borderWidth: 1,
+    marginTop: 20,
   },
   image: {
     width: "100%",

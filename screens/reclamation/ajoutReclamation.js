@@ -72,7 +72,7 @@ const AjoutReclamtion = (props) => {
           }}
         />
         <Button
-          title="Login"
+          title="Ajouter"
           color="#4a148c"
           onPress={() => {
             submit();
