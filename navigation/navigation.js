@@ -11,6 +11,8 @@ import ListeReclamation from "../screens/reclamation/liste-reclamation";
 import AllocationVieillesse from "../screens/allocation/allocation-vieillesse";
 import CapitalDeces from "../screens/CapitalDeces/capital-deces";
 import PensionConjoin from "../screens/pension-conjoin/pensions-conjoin";
+import PensionRetraite from "../screens/pension-retraite/pension-retraite";
+import PretPersonnel from "../screens/pret-personnel/pret-personnel";
 
 const LandingNav = createStackNavigator(
   {
@@ -18,7 +20,9 @@ const LandingNav = createStackNavigator(
     PensionCivile: PensionCivile,
     AllocationVieillesse: AllocationVieillesse,
     CapitalDeces: CapitalDeces,
-    PensionConjoin: PensionConjoin
+    PensionConjoin: PensionConjoin,
+    PensionRetraite:PensionRetraite,
+    PretPersonnel:PretPersonnel
   },
   {
     defaultNavigationOptions: {
