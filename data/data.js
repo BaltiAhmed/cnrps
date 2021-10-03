@@ -8,6 +8,6 @@ export const LINKS = [
   new Landing("l5", "Pension mise en retraite", "#368dff","PensionRetraite"),
   new Landing("l6", "Prèt personnel", "#41d95d","PretPersonnel"),
   new Landing("l6", "Prèt universitaire", "#41d95d","PretUniversitaire"),
-  new Landing("l6", "Prestation soutien", "#41d95d","PrestationSoutien"),
+  new Landing("l6", "Pension orphelin", "#41d95d","PensionOrphelin"),
  
 ];
