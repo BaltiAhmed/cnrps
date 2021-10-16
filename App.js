@@ -8,7 +8,7 @@ import { Authcontext } from "./context/auth-context";
 import { UserAuth } from "./hooks/auth";
 
 export default function App() {
-  const { userId, token, login, logout } = UserAuth();
+  const { userId, token, login, logout,user } = UserAuth();
   
   let routes
   if(token){
@@ -18,7 +18,7 @@ export default function App() {
   }
   
   return (
-    <Authcontext.Provider value={{userId:userId,token:token,login:login,logout:logout}}>
+    <Authcontext.Provider value={{userId:userId,token:token,login:login,logout:logout,user:user}}>
       {routes}
     </Authcontext.Provider>
   );

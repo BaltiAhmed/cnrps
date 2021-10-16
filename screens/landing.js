@@ -1,10 +1,12 @@
-import React from "react";
+import React,{useContext} from "react";
 import { StyleSheet, FlatList, Button } from "react-native";
 import LandingGrid from "../components/landingGrid";
-import { LINKS } from "../data/data";
+import { LINKS,LINKS1 } from "../data/data";
 import IconAntDesign from "react-native-vector-icons/AntDesign";
+import {Authcontext} from '../context/auth-context'
 
 const Landing = (props) => {
+  const auth = useContext(Authcontext)
   const renderGridItem = (itemData) => {
     return (
       <LandingGrid
@@ -24,7 +26,7 @@ const Landing = (props) => {
       keyExtractor={(item, index) => {
         item.id;
       }}
-      data={LINKS}
+      data={auth.user.matriculeCNRPS ? LINKS : LINKS1}
       renderItem={renderGridItem}
       numColumns={2}
     />

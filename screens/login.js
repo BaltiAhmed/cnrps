@@ -62,7 +62,7 @@ const Login = (props) => {
     let responsedata = await response.json();
     setLoading(false);
     console.log(responsedata.utilisateur._id)
-    auth.login(responsedata.utilisateur._id, responsedata.token);
+    auth.login(responsedata.utilisateur,responsedata.utilisateur._id, responsedata.token);
   };
   return (
     <Card style={styles.authContainer}>

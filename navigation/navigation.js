@@ -16,6 +16,10 @@ import PretPersonnel from "../screens/pret-personnel/pret-personnel";
 import PretUniversiatire from "../screens/pret-universitaire/pret-universitaire";
 import PrestationSoutien from "../screens/prestation-soutien/prestation-soutien";
 import PensionOrphelein from "../screens/pensions-orphelin/pension-orphelin";
+import AttestationNonAffiliation from "../screens/attestation/attestation-non-affiliation";
+import AttestationAffiliation from "../screens/attestation/attestation-affiliation";
+import nonBenifisPret from "../screens/attestation/non-benefis-pret";
+import MapList from "../screens/map";
 
 const LandingNav = createStackNavigator(
   {
@@ -28,7 +32,10 @@ const LandingNav = createStackNavigator(
     PretPersonnel:PretPersonnel,
     PretUniversitaire:PretUniversiatire,
     PrestationSoutien: PrestationSoutien,
-    PensionOrphelin: PensionOrphelein
+    PensionOrphelin: PensionOrphelein,
+    AttestationNonAffiliation: AttestationNonAffiliation,
+    AttestationAffiliation: AttestationAffiliation,
+    nonBenifisPret: nonBenifisPret,
   },
   {
     defaultNavigationOptions: {
@@ -65,6 +72,9 @@ const mainNavigator = createDrawerNavigator(
     },
     Reclamation: {
       screen: Reclamation,
+    },
+    Map: {
+      screen: MapList,
     },
   },
   {
