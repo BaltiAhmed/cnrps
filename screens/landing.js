@@ -1,12 +1,12 @@
-import React,{useContext} from "react";
+import React, { useContext } from "react";
 import { StyleSheet, FlatList, Button } from "react-native";
 import LandingGrid from "../components/landingGrid";
-import { LINKS,LINKS1 } from "../data/data";
+import { LINKS, LINKS1 } from "../data/data";
 import IconAntDesign from "react-native-vector-icons/AntDesign";
-import {Authcontext} from '../context/auth-context'
+import { Authcontext } from "../context/auth-context";
 
 const Landing = (props) => {
-  const auth = useContext(Authcontext)
+  const auth = useContext(Authcontext);
   const renderGridItem = (itemData) => {
     return (
       <LandingGrid
@@ -17,16 +17,16 @@ const Landing = (props) => {
             routeName: itemData.item.link,
           });
         }}
-        
       />
     );
   };
   return (
     <FlatList
+      style={{ backgroundColor: "#4ebaaa" }}
       keyExtractor={(item, index) => {
         item.id;
       }}
-      data={auth.user.matriculeCNRPS ? LINKS : LINKS1}
+      data={auth.user.matriculeCNRPS ? LINKS : LINKS}
       renderItem={renderGridItem}
       numColumns={2}
     />
@@ -36,16 +36,7 @@ const Landing = (props) => {
 Landing.navigationOptions = (navData) => {
   return {
     headerTitle: "CNRPS",
-    headerLeft: (
-      <IconAntDesign
-        name="menuunfold"
-        size={30}
-        color="#ff6f00"
-        onPress={() => {
-          navData.navigation.toggleDrawer();
-        }}
-      />
-    ),
+    
   };
 };
 

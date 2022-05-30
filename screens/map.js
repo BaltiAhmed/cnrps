@@ -23,14 +23,14 @@ const MapList = (props) => {
     setRefreshing(true);
     wait(2000).then(() => setRefreshing(false));
     const sendRequest = async () => {
-      const response = await fetch(`http://192.168.1.6:5000/api/site/${id}`);
+      const response = await fetch(`http://192.168.1.46:5000/api/agence`);
 
       const responseData = await response.json();
       if (!response.ok) {
         throw new Error(responseData.message);
       }
 
-      setList(responseData.site);
+      setList(responseData.agences);
     };
     sendRequest();
   }, []);
@@ -39,17 +39,18 @@ const MapList = (props) => {
 
   useEffect(() => {
     const sendRequest = async () => {
-      const response = await fetch(`http://192.168.1.6:5000/api/site/${id}`);
+      const response = await fetch(`http://192.168.170.177:5000/api/agence`);
 
       const responseData = await response.json();
       if (!response.ok) {
         throw new Error(responseData.message);
       }
 
-      setList(responseData.site);
+      setList(responseData.agences);
     };
     sendRequest();
   }, []);
+  console.log(list);
   return (
     <View>
       <ScrollView
@@ -57,7 +58,7 @@ const MapList = (props) => {
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
       >
-        <View style={{height:500}}>
+        <View style={{ height: "100%" }}>
           <MapView
             style={styles.map}
             region={{
@@ -67,12 +68,17 @@ const MapList = (props) => {
               longitudeDelta: 0.0421,
             }}
           >
-            <Marker
-              coordinate={{
-                latitude: 36.811571199999996,
-                longitude: 10.181017599999999,
-              }}
-            />
+            {list &&
+              list.map((item, index) => (
+                <Marker
+                  coordinate={{
+                    latitude: parseFloat(item.lat),
+                    longitude: parseFloat(item.long),
+                  }}
+                  title={item.nom}
+                  description={item.adresse +" / "+ item.tel}
+                />
+              ))}
           </MapView>
         </View>
       </ScrollView>
@@ -81,7 +87,7 @@ const MapList = (props) => {
 };
 
 MapList.navigationOptions = {
-  headerTitle: "Detail",
+  headerTitle: "Agence CNRPS sur le MAP",
 };
 
 const styles = StyleSheet.create({
@@ -107,7 +113,7 @@ const styles = StyleSheet.create({
   },
   map: {
     width: "100%",
-    height: 265,
+    height: 900,
   },
 });
 

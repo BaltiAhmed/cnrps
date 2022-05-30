@@ -8,12 +8,12 @@ import {
   TextInput,
   Alert,
 } from "react-native";
-import Card from "../components/Card";
+import Card from "../../components/Card";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
-import Error from "../models/error";
-import Success from "../models/success";
+import Error from "../../models/error";
+import Success from "../../models/success";
 
-const Signup = (props) => {
+const Profile = (props) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [nom, setNom] = useState();
@@ -198,7 +198,7 @@ const Signup = (props) => {
           </View>
 
           <View style={styles.buttonContainer}>
-            <Button title="Signup" color="#005b4f" onPress={submit} />
+            <Button title="Mettre à jour le profile" color="#005b4f" onPress={submit} />
           </View>
         </ScrollView>
       </Card>
@@ -206,8 +206,8 @@ const Signup = (props) => {
   );
 };
 
-Signup.navigationOptions = {
-  headerTitle: "Signup",
+Profile.navigationOptions = {
+  headerTitle: "Profile",
 };
 
 const styles = StyleSheet.create({
@@ -244,4 +244,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Signup;
+export default Profile;

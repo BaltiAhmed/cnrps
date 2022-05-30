@@ -288,7 +288,7 @@ const AllocationVieillesse = (props) => {
         <IconAntDesign
           name="upload"
           size={30}
-          color="#2196f3"
+          color="#005b4f"
           onPress={takedemandeAllocation}
         />
         <Text>Choisir une image</Text>
@@ -303,7 +303,7 @@ const AllocationVieillesse = (props) => {
         <IconAntDesign
           name="upload"
           size={30}
-          color="#2196f3"
+          color="#005b4f"
           onPress={takearreteMiseRetraite}
         />
         <Text>Choisir une image</Text>
@@ -318,7 +318,7 @@ const AllocationVieillesse = (props) => {
         <IconAntDesign
           name="upload"
           size={30}
-          color="#2196f3"
+          color="#005b4f"
           onPress={takereleveServices}
         />
         <Text>Choisir une image</Text>
@@ -333,7 +333,7 @@ const AllocationVieillesse = (props) => {
         <IconAntDesign
           name="upload"
           size={30}
-          color="#2196f3"
+          color="#005b4f"
           onPress={takephotoIdentite}
         />
         <Text>Choisir une image</Text>
@@ -348,12 +348,12 @@ const AllocationVieillesse = (props) => {
         <IconAntDesign
           name="upload"
           size={30}
-          color="#2196f3"
+          color="#005b4f"
           onPress={takeextraitNaissance}
         />
         <Text>Choisir une </Text>
         <Button
-          style={{ marginTop: 20 }}
+          style={{ marginTop: 20,backgroundColor:"#005b4f" }}
           block
           onPress={() => {
             postDocument();
@@ -372,6 +372,7 @@ AllocationVieillesse.navigationOptions = {
 
 const styles = StyleSheet.create({
   imagePicker: {
+    backgroundColor: "#4ebaaa",
     alignItems: "center",
     marginBottom: 15,
   },

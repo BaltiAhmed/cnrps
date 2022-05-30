@@ -6,9 +6,9 @@ import {
   Form,
   Item,
   Input,
-  Text,
+  Text
 } from "native-base";
-import { Button, Alert } from "react-native";
+import { Button, Alert, View } from "react-native";
 import { Authcontext } from "../../context/auth-context";
 import IconAntDesign from "react-native-vector-icons/AntDesign";
 
@@ -42,7 +42,7 @@ const AjoutReclamtion = (props) => {
       Alert.alert("Message", responsedata.message, [{ text: "fermer" }]);
       throw new Error(responsedata.message);
     }
-    
+
     Alert.alert(
       "Message",
       "Votre reclamation est envoyer vous recevez une reponce dés possible",
@@ -51,38 +51,38 @@ const AjoutReclamtion = (props) => {
   };
 
   return (
-    <Container>
-      <Content padder>
-        <Item regular>
-          <Input
-            placeholder="Objet"
-            value={objet}
+    <View style={{ backgroundColor: "#4ebaaa", height: "100%" }}>
+      <Container style={{ backgroundColor: "#4ebaaa", height: "100%" }}>
+        <Content padder>
+          <Item regular>
+            <Input
+              placeholder="Objet"
+              value={objet}
+              onChangeText={(text) => {
+                setObjet(text);
+              }}
+            />
+          </Item>
+          <Textarea
+            rowSpan={5}
+            bordered
+            placeholder="Message"
+            value={message}
             onChangeText={(text) => {
-              setObjet(text);
+              setMessage(text);
             }}
           />
-        </Item>
-        <Textarea
-          rowSpan={5}
-          bordered
-          placeholder="Message"
-          value={message}
-          onChangeText={(text) => {
-            setMessage(text);
-          }}
-        />
-        <Button
-          title="Ajouter"
-          color="#4a148c"
-          onPress={() => {
-            submit();
-          }}
-        />
-      </Content>
-    </Container>
+          <Button
+            title="Ajouter"
+            color="#005b4f"
+            onPress={() => {
+              submit();
+            }}
+          />
+        </Content>
+      </Container>
+    </View>
   );
 };
-
-
 
 export default AjoutReclamtion;

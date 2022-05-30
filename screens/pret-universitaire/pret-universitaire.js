@@ -372,7 +372,7 @@ const PretUniversiatire = (props) => {
         <IconAntDesign
           name="upload"
           size={30}
-          color="#2196f3"
+          color="#005b4f"
           onPress={takedemandepret}
         />
         <Text>Choisir une image</Text>
@@ -387,7 +387,7 @@ const PretUniversiatire = (props) => {
         <IconAntDesign
           name="upload"
           size={30}
-          color="#2196f3"
+          color="#005b4f"
           onPress={takerib}
         />
         <Text>Choisir une image</Text>
@@ -402,7 +402,7 @@ const PretUniversiatire = (props) => {
         <IconAntDesign
           name="upload"
           size={30}
-          color="#2196f3"
+          color="#005b4f"
           onPress={takephotoIdentite}
         />
 
@@ -419,7 +419,7 @@ const PretUniversiatire = (props) => {
         <IconAntDesign
           name="upload"
           size={30}
-          color="#2196f3"
+          color="#005b4f"
           onPress={takeattestationSalaire}
         />
 
@@ -435,7 +435,7 @@ const PretUniversiatire = (props) => {
         <IconAntDesign
           name="upload"
           size={30}
-          color="#2196f3"
+          color="#005b4f"
           onPress={takecertificatInscrit}
         />
 
@@ -451,7 +451,7 @@ const PretUniversiatire = (props) => {
         <IconAntDesign
           name="upload"
           size={30}
-          color="#2196f3"
+          color="#005b4f"
           onPress={takedeclarationREV}
         />
 
@@ -468,7 +468,7 @@ const PretUniversiatire = (props) => {
         <IconAntDesign
           name="upload"
           size={30}
-          color="#2196f3"
+          color="#005b4f"
           onPress={takecopieCINEtudiant}
         />
 
@@ -476,7 +476,7 @@ const PretUniversiatire = (props) => {
 
 
         <Button
-          style={{ marginTop: 20 }}
+          style={{ marginTop: 20 ,backgroundColor:"#005b4f"}}
           block
           onPress={() => {
             postDocument();
@@ -495,6 +495,7 @@ PretUniversiatire.navigationOptions = {
 
 const styles = StyleSheet.create({
   imagePicker: {
+    backgroundColor: "#4ebaaa",
     alignItems: "center",
     marginBottom: 15,
   },

@@ -21,7 +21,7 @@ const wait = (timeout) => {
   return new Promise((resolve) => setTimeout(resolve, timeout));
 };
 
-const ListeReclamation = (props) => {
+const Notification = (props) => {
   const [refreshing, setRefreshing] = React.useState(false);
 
   const onRefresh = useCallback(() => {
@@ -29,7 +29,7 @@ const ListeReclamation = (props) => {
     wait(2000).then(() => setRefreshing(false));
     const sendRequest = async () => {
       const response = await fetch(
-        `http://192.168.1.185:5000/api/reclamation/utilisateur/${auth.userId}`
+        `http://192.168.1.185:5000/api/notification/${auth.userId}`
       );
 
       const responseData = await response.json();
@@ -37,7 +37,7 @@ const ListeReclamation = (props) => {
         throw new Error(responseData.message);
       }
 
-      setList(responseData.reclamation);
+      setList(responseData.notifications);
     };
     sendRequest();
   }, []);
@@ -48,7 +48,7 @@ const ListeReclamation = (props) => {
   useEffect(() => {
     const sendRequest = async () => {
       const response = await fetch(
-        `http://192.168.1.185:5000/api/reclamation/utilisateur/${auth.userId}`
+        `http://192.168.1.185:5000/api/notification/${auth.userId}`
       );
 
       const responseData = await response.json();
@@ -56,7 +56,7 @@ const ListeReclamation = (props) => {
         throw new Error(responseData.message);
       }
 
-      setList(responseData.reclamation);
+      setList(responseData.notifications);
     };
     sendRequest();
   }, []);
@@ -66,19 +66,6 @@ const ListeReclamation = (props) => {
     <View style={{ backgroundColor: "#4ebaaa", height: "100%" }}>
       <Container>
         <Content>
-          <View style={{ marginLeft: "8%", marginTop: 30 }}>
-            <IconEntypo
-              name="add-to-list"
-              size={60}
-              color="#1976d2"
-              onPress={() => {
-                props.navigation.navigate({
-                  routeName: "AjoutReclamtion",
-                });
-              }}
-            />
-          </View>
-
           <ScrollView
             refreshControl={
               <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
@@ -89,7 +76,7 @@ const ListeReclamation = (props) => {
                 <ListItem avatar>
                   <Body>
                     <View style={{ marginTop: 20 }}>
-                      <Text>{item.objet}</Text>
+                      <Text>{item.sujet}</Text>
                       <Text note>{item.message}</Text>
                     </View>
                   </Body>
@@ -135,11 +122,11 @@ const ListeReclamation = (props) => {
   );
 };
 
-ListeReclamation.navigationOptions = (navData) => {
+Notification.navigationOptions = (navData) => {
   return {
-    headerTitle: "Reclamation",
+    headerTitle: "Notifications",
     
   };
 };
 
-export default ListeReclamation;
+export default Notification;

@@ -73,7 +73,7 @@ const AttestationNonAffiliation = (props) => {
   };
 
   return (
-    <View>
+    <View style={{backgroundColor: "#4ebaaa",height :"100%"}}>
       <Success success={success} />
       <Error error={error} />
       <ScrollView>
@@ -125,7 +125,7 @@ const AttestationNonAffiliation = (props) => {
         <View style={styles.formControl}>
           <Text style={styles.label}>Date de CIN</Text>
           <Button
-            color="#b3e5fc"
+            color="#00897b"
             title="Date de CIN"
             onPress={showDatePicker}
           />
@@ -141,7 +141,7 @@ const AttestationNonAffiliation = (props) => {
         <View style={styles.formControl}>
           <Text style={styles.label}>Date de naissance</Text>
           <Button
-            color="#b3e5fc"
+            color="#00897b"
             title="Date de naissance"
             onPress={showDatePicker}
           />
@@ -171,7 +171,7 @@ const AttestationNonAffiliation = (props) => {
         </View>
 
         <View style={styles.buttonContainer}>
-          <Button title="Envoyer" color="#4a148c" onPress={submit} />
+          <Button title="Envoyer" color="#005b4f" onPress={submit} />
         </View>
       </ScrollView>
     </View>

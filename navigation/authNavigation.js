@@ -13,7 +13,7 @@ const Auth = createStackNavigator(
   {
     defaultNavigationOptions: {
       headerStyle: {
-        backgroundColor: "#4a148c",
+        backgroundColor: "#005b4f",
       },
       headerTintColor: "white",
     },

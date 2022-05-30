@@ -144,7 +144,7 @@ const PensionCivile = (props) => {
         <IconAntDesign
           name="upload"
           size={30}
-          color="#2196f3"
+          color="#005b4f"
           onPress={takeMiseRetraite}
         />
         <Text>Choisir l'image de mise en retraite</Text>
@@ -159,12 +159,12 @@ const PensionCivile = (props) => {
         <IconAntDesign
           name="upload"
           size={30}
-          color="#2196f3"
+          color="#005b4f"
           onPress={takeReleveService}
         />
         <Text>Choisir l'image de relevé service</Text>
         <Button
-          style={{ marginTop: 20 }}
+          style={{ marginTop: 20 ,backgroundColor:"#005b4f"}}
           block
           onPress={() => {
             postDocument();
@@ -183,6 +183,7 @@ PensionCivile.navigationOptions = {
 
 const styles = StyleSheet.create({
   imagePicker: {
+    backgroundColor: "#4ebaaa",
     alignItems: "center",
     marginBottom: 15,
   },

@@ -239,7 +239,7 @@ const CapitalDeces = (props) => {
         <IconAntDesign
           name="upload"
           size={30}
-          color="#2196f3"
+          color="#005b4f"
           onPress={takeficheRenseignement}
         />
         <Text>Choisir une image</Text>
@@ -254,7 +254,7 @@ const CapitalDeces = (props) => {
         <IconAntDesign
           name="upload"
           size={30}
-          color="#2196f3"
+          color="#005b4f"
           onPress={takeacteDeces}
         />
         <Text>Choisir une image</Text>
@@ -272,7 +272,7 @@ const CapitalDeces = (props) => {
         <IconAntDesign
           name="upload"
           size={30}
-          color="#2196f3"
+          color="#005b4f"
           onPress={takerextraitNaissConjoint}
         />
         <Text>Choisir une image</Text>
@@ -287,13 +287,13 @@ const CapitalDeces = (props) => {
         <IconAntDesign
           name="upload"
           size={30}
-          color="#2196f3"
+          color="#005b4f"
           onPress={takecinConjoint}
         />
         <Text>Choisir une image</Text>
 
         <Button
-          style={{ marginTop: 20 }}
+          style={{ marginTop: 20 ,backgroundColor:"#005b4f"}}
           block
           onPress={() => {
             postDocument();
@@ -312,6 +312,7 @@ CapitalDeces.navigationOptions = {
 
 const styles = StyleSheet.create({
   imagePicker: {
+    backgroundColor: "#4ebaaa",
     alignItems: "center",
     marginBottom: 15,
   },

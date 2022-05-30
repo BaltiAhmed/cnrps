@@ -248,7 +248,7 @@ const PensionConjoin = (props) => {
         <IconAntDesign
           name="upload"
           size={30}
-          color="#2196f3"
+          color="#005b4f"
           onPress={takeacteNotorieteDeces}
         />
         <Text>Choisir une image</Text>
@@ -263,7 +263,7 @@ const PensionConjoin = (props) => {
         <IconAntDesign
           name="upload"
           size={30}
-          color="#2196f3"
+          color="#005b4f"
           onPress={takeficheRenseignemnt}
         />
         <Text>Choisir une image</Text>
@@ -278,7 +278,7 @@ const PensionConjoin = (props) => {
         <IconAntDesign
           name="upload"
           size={30}
-          color="#2196f3"
+          color="#005b4f"
           onPress={takephotoIdentite}
         />
         <Text>Choisir une image</Text>
@@ -293,12 +293,12 @@ const PensionConjoin = (props) => {
         <IconAntDesign
           name="upload"
           size={30}
-          color="#2196f3"
+          color="#005b4f"
           onPress={takeextraitNaissance}
         />
         <Text>Choisir une </Text>
         <Button
-          style={{ marginTop: 20 }}
+          style={{ marginTop: 20 ,backgroundColor:"#005b4f"}}
           block
           onPress={() => {
             postDocument();
@@ -317,6 +317,7 @@ PensionConjoin.navigationOptions = {
 
 const styles = StyleSheet.create({
   imagePicker: {
+    backgroundColor: "#4ebaaa",
     alignItems: "center",
     marginBottom: 15,
   },

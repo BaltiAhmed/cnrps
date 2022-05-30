@@ -12,6 +12,7 @@ export default function App() {
   
   let routes
   if(token){
+    
     routes=<LandingNav/>
   }else{
     routes=<Auth/>
