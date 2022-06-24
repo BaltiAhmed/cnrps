@@ -237,7 +237,7 @@ const PensionOrphelein = (props) => {
   const auth = useContext(Authcontext);
 
   const uploadcopieCinTuteur = async (id) => {
-    const url = `http://192.168.1.185:5000/api/pensionOrphelin/updatecopieCinTuteur/${id}`;
+    const url = `${path}/api/pensionOrphelin/updatecopieCinTuteur/${id}`;
     const fileUri = copieCinTuteur.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -266,7 +266,7 @@ const PensionOrphelein = (props) => {
   };
 
   const uploadphotoTuteur = async (id) => {
-    const url = `http://192.168.1.185:5000/api/pensionOrphelin/updatephotoTuteur/${id}`;
+    const url = `${path}/api/pensionOrphelin/updatephotoTuteur/${id}`;
     const fileUri = photoTuteur.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -295,7 +295,7 @@ const PensionOrphelein = (props) => {
   };
 
   const uploadjugementTutelle = async (id) => {
-    const url = `http://192.168.1.185:5000/api/pensionOrphelin/updatejugementTutelle/${id}`;
+    const url = `${path}/api/pensionOrphelin/updatejugementTutelle/${id}`;
     const fileUri = jugementTutelle.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -324,7 +324,7 @@ const PensionOrphelein = (props) => {
   };
 
   const uploadcarteHandicap = async (id) => {
-    const url = `http://192.168.1.185:5000/api/pensionOrphelin/updatecarteHandicap/${id}`;
+    const url = `${path}/api/pensionOrphelin/updatecarteHandicap/${id}`;
     const fileUri = carteHandicap.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -353,7 +353,7 @@ const PensionOrphelein = (props) => {
   };
 
   const uploadattestationNonBenif = async (id) => {
-    const url = `http://192.168.1.185:5000/api/pensionOrphelin/updateattestationNonBenif/${id}`;
+    const url = `${path}/api/pensionOrphelin/updateattestationNonBenif/${id}`;
     const fileUri = attestationNonBenif.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -382,7 +382,7 @@ const PensionOrphelein = (props) => {
   };
 
   const uploadattestationNonAff = async (id) => {
-    const url = `http://192.168.1.185:5000/api/pensionOrphelin/updateattestationNonAff/${id}`;
+    const url = `${path}/api/pensionOrphelin/updateattestationNonAff/${id}`;
     const fileUri = attestationNonAff.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -411,7 +411,7 @@ const PensionOrphelein = (props) => {
   };
 
   const uploadcertificatInscritUniversitaire = async (id) => {
-    const url = `http://192.168.1.185:5000/api/pensionOrphelin/updatecertificatInscritUniversitaire/${id}`;
+    const url = `${path}/api/pensionOrphelin/updatecertificatInscritUniversitaire/${id}`;
     const fileUri = certificatInscritUniversitaire.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -440,7 +440,7 @@ const PensionOrphelein = (props) => {
   };
 
   const uploaddeclarationNonEmploi = async (id) => {
-    const url = `http://192.168.1.185:5000/api/pensionOrphelin/updatedeclarationNonEmploi/${id}`;
+    const url = `${path}/api/pensionOrphelin/updatedeclarationNonEmploi/${id}`;
     const fileUri = declarationNonEmploi.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -469,7 +469,7 @@ const PensionOrphelein = (props) => {
   };
 
   const uploadcinOrphelin = async (id) => {
-    const url = `http://192.168.1.185:5000/api/pensionOrphelin/updatecinOrphelin/${id}`;
+    const url = `${path}/api/pensionOrphelin/updatecinOrphelin/${id}`;
     const fileUri = cinOrphelin.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -498,7 +498,7 @@ const PensionOrphelein = (props) => {
   };
 
   const uploadextraitNaissOrphelin = async (id) => {
-    const url = `http://192.168.1.185:5000/api/pensionOrphelin/updateextraitNaissOrphelin/${id}`;
+    const url = `${path}/api/pensionOrphelin/updateextraitNaissOrphelin/${id}`;
     const fileUri = extraitNaissOrphelin.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -527,7 +527,7 @@ const PensionOrphelein = (props) => {
   };
 
   const uploadreleveServices = async (id) => {
-    const url = `http://192.168.1.185:5000/api/pensionOrphelin/updatereleveServices/${id}`;
+    const url = `${path}/api/pensionOrphelin/updatereleveServices/${id}`;
     const fileUri = releveServices.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -556,7 +556,7 @@ const PensionOrphelein = (props) => {
   };
 
   const uploadacteDeces = async (id) => {
-    const url = `http://192.168.1.185:5000/api/pensionOrphelin/updateacteDeces/${id}`;
+    const url = `${path}/api/pensionOrphelin/updateacteDeces/${id}`;
     const fileUri = acteDeces.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -585,7 +585,7 @@ const PensionOrphelein = (props) => {
   };
 
   const postDocument = async () => {
-    const url = "http://192.168.1.185:5000/api/pensionOrphelin/ajout";
+    const url = `${path}/api/pensionOrphelin/ajout`;
     const fileUri = demande.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();

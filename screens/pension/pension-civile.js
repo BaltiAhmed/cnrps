@@ -60,7 +60,7 @@ const PensionCivile = (props) => {
   const auth = useContext(Authcontext);
 
   const uploadReleveService = async (id) => {
-    const url = `http://192.168.1.185:5000/api/pensioncivile/uploadReleveService/${id}`;
+    const url = `${path}/api/pensioncivile/uploadReleveService/${id}`;
     const fileUri = ReleveService.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -89,7 +89,7 @@ const PensionCivile = (props) => {
   };
 
   const postDocument = async () => {
-    const url = "http://192.168.1.185:5000/api/pensioncivile/ajout";
+    const url = `${path}/api/pensioncivile/ajout`;
     const fileUri = MiseRetraite.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();

@@ -92,7 +92,7 @@ const CapitalDeces = (props) => {
   const auth = useContext(Authcontext);
 
   const uploadaacteDeces = async (id) => {
-    const url = `http://192.168.1.185:5000/api/capitalDeces/updateacteDeces/${id}`;
+    const url = `${path}/api/capitalDeces/updateacteDeces/${id}`;
     const fileUri = acteDeces.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -121,7 +121,7 @@ const CapitalDeces = (props) => {
   };
 
   const uploadextraitNaissConjoint = async (id) => {
-    const url = `http://192.168.1.185:5000/api/capitalDeces/updateextraitNaissConjoint/${id}`;
+    const url = `${path}/api/capitalDeces/updateextraitNaissConjoint/${id}`;
     const fileUri = extraitNaissConjoint.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -150,7 +150,7 @@ const CapitalDeces = (props) => {
   };
 
   const uploadcinConjoint = async (id) => {
-    const url = `http://192.168.1.185:5000/api/capitalDeces/updatecinConjoint/${id}`;
+    const url = `${path}/api/capitalDeces/updatecinConjoint/${id}`;
     const fileUri = cinConjoint.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -179,7 +179,7 @@ const CapitalDeces = (props) => {
   };
 
   const postDocument = async () => {
-    const url = "http://192.168.1.185:5000/api/capitalDeces/ajout";
+    const url = `${path}/api/capitalDeces/ajout`;
     const fileUri = ficheRenseignement.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();

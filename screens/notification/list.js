@@ -29,7 +29,7 @@ const Notification = (props) => {
     wait(2000).then(() => setRefreshing(false));
     const sendRequest = async () => {
       const response = await fetch(
-        `http://192.168.1.185:5000/api/notification/${auth.userId}`
+        `${path}/api/notification/${auth.userId}`
       );
 
       const responseData = await response.json();
@@ -48,7 +48,7 @@ const Notification = (props) => {
   useEffect(() => {
     const sendRequest = async () => {
       const response = await fetch(
-        `http://192.168.1.185:5000/api/notification/${auth.userId}`
+        `${path}/api/notification/${auth.userId}`
       );
 
       const responseData = await response.json();
@@ -88,8 +88,8 @@ const Notification = (props) => {
                       onPress={() => {}}
                       style={{ marginTop: 30 }}
                       OnPress={async () => {
-                        let response = await fetch(
-                          `http://192.168.1.185:5000/api/reclamation/${item._id}`,
+                        /* let response = await fetch(
+                          `${path}/api/reclamation/${item._id}`,
                           {
                             method: "DELETE",
                             headers: {
@@ -109,7 +109,7 @@ const Notification = (props) => {
                           "Message",
                           "Votre reclamation est suprimée",
                           [{ text: "fermer" }]
-                        );
+                        ); */
                       }}
                     />
                   </Right>

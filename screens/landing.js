@@ -26,7 +26,7 @@ const Landing = (props) => {
       keyExtractor={(item, index) => {
         item.id;
       }}
-      data={auth.user.matriculeCNRPS ? LINKS : LINKS}
+      data={auth.user.matriculeCNRPS ? LINKS : LINKS1}
       renderItem={renderGridItem}
       numColumns={2}
     />

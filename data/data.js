@@ -1,7 +1,6 @@
 import Landing from "../models/landing";
 
 export const LINKS = [
-  new Landing("l1", "Demande pension civile", "#e0f2f1", "PensionCivile"),
   new Landing(
     "l2",
     "Demande d'allocation de vieillesse",

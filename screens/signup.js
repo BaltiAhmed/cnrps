@@ -51,7 +51,7 @@ const Signup = (props) => {
     console.log(date);
 
     let response = await fetch(
-      "http://192.168.1.185:5000/api/utilisateur/signup",
+      `${path}/api/utilisateur/signup`,
       {
         method: "POST",
         headers: {

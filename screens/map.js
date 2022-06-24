@@ -23,7 +23,7 @@ const MapList = (props) => {
     setRefreshing(true);
     wait(2000).then(() => setRefreshing(false));
     const sendRequest = async () => {
-      const response = await fetch(`http://192.168.1.46:5000/api/agence`);
+      const response = await fetch(`${path}/api/agence`);
 
       const responseData = await response.json();
       if (!response.ok) {
@@ -39,7 +39,7 @@ const MapList = (props) => {
 
   useEffect(() => {
     const sendRequest = async () => {
-      const response = await fetch(`http://192.168.170.177:5000/api/agence`);
+      const response = await fetch(`${path}/api/agence`);
 
       const responseData = await response.json();
       if (!response.ok) {

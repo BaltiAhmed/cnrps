@@ -29,7 +29,7 @@ const ListeReclamation = (props) => {
     wait(2000).then(() => setRefreshing(false));
     const sendRequest = async () => {
       const response = await fetch(
-        `http://192.168.1.185:5000/api/reclamation/utilisateur/${auth.userId}`
+        `${path}/api/reclamation/utilisateur/${auth.userId}`
       );
 
       const responseData = await response.json();
@@ -48,7 +48,7 @@ const ListeReclamation = (props) => {
   useEffect(() => {
     const sendRequest = async () => {
       const response = await fetch(
-        `http://192.168.1.185:5000/api/reclamation/utilisateur/${auth.userId}`
+        `${path}/api/reclamation/utilisateur/${auth.userId}`
       );
 
       const responseData = await response.json();
@@ -102,7 +102,7 @@ const ListeReclamation = (props) => {
                       style={{ marginTop: 30 }}
                       OnPress={async () => {
                         let response = await fetch(
-                          `http://192.168.1.185:5000/api/reclamation/${item._id}`,
+                          `${path}/api/reclamation/${item._id}`,
                           {
                             method: "DELETE",
                             headers: {

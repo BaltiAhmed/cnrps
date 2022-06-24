@@ -76,7 +76,7 @@ const PretPersonnel = (props) => {
   const auth = useContext(Authcontext);
 
   const uploadphotoIdentite = async (id) => {
-    const url = `http://192.168.1.185:5000/api/pretPersonnel/updatecopieCIN/${id}`;
+    const url = `${path}/api/pretPersonnel/updatecopieCIN/${id}`;
     const fileUri = photoIdentite.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -105,7 +105,7 @@ const PretPersonnel = (props) => {
   };
 
   const uploaderib = async (id) => {
-    const url = `http://192.168.1.185:5000/api/pretPersonnel/updaterib/${id}`;
+    const url = `${path}/api/pretPersonnel/updaterib/${id}`;
     const fileUri = rib.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -134,7 +134,7 @@ const PretPersonnel = (props) => {
   };
 
   const postDocument = async () => {
-    const url = "http://192.168.1.185:5000/api/pretPersonnel/ajout";
+    const url = `${path}/api/pretPersonnel/ajout`;
     const fileUri = demandepret.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();

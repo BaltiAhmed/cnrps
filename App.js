@@ -8,6 +8,9 @@ import { Authcontext } from "./context/auth-context";
 import { UserAuth } from "./hooks/auth";
 
 export default function App() {
+
+  global.path = 'http://192.168.1.46:5000';
+
   const { userId, token, login, logout,user } = UserAuth();
   
   let routes

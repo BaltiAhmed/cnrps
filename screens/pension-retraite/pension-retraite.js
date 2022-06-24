@@ -101,7 +101,7 @@ const PensionRetraite = (props) => {
     const auth = useContext(Authcontext);
   
     const uploadarreteMISEretraite = async (id) => {
-      const url = `http://192.168.1.185:5000/api/pensionretraite/updatearreteMISEretraite/${id}`;
+      const url = `${path}/api/pensionretraite/updatearreteMISEretraite/${id}`;
       const fileUri = arreteMISEretraite.uri;
       const newImageUri = "file:///" + fileUri.split("file:/").join("");
       const formData = new FormData();
@@ -118,7 +118,7 @@ const PensionRetraite = (props) => {
           "Content-Type": "multipart/form-data",
         },
       };
-      console.log(formData);
+      //console.log(formData);
   
       let response = await fetch(url, options);
   
@@ -132,7 +132,7 @@ const PensionRetraite = (props) => {
     
   
     const uploadphotoIdentite = async (id) => {
-      const url = `http://192.168.1.185:5000/api/pensionretraite/updatephotoIdent/${id}`;
+      const url = `${path}/api/pensionretraite/updatephotoIdent/${id}`;
       const fileUri = photoIdentite.uri;
       const newImageUri = "file:///" + fileUri.split("file:/").join("");
       const formData = new FormData();
@@ -149,7 +149,7 @@ const PensionRetraite = (props) => {
           "Content-Type": "multipart/form-data",
         },
       };
-      console.log(formData);
+      //console.log(formData);
   
       let response = await fetch(url, options);
   
@@ -161,7 +161,7 @@ const PensionRetraite = (props) => {
     };
   
     const uploadextraitNaissance = async (id) => {
-      const url = `http://192.168.1.185:5000/api/pensionretraite/updateextraitNaissance/${id}`;
+      const url = `${path}/api/pensionretraite/updateextraitNaissance/${id}`;
       const fileUri = extraitNaissance.uri;
       const newImageUri = "file:///" + fileUri.split("file:/").join("");
       const formData = new FormData();
@@ -178,7 +178,7 @@ const PensionRetraite = (props) => {
           "Content-Type": "multipart/form-data",
         },
       };
-      console.log(formData);
+      //console.log(formData);
   
       let response = await fetch(url, options);
   
@@ -190,7 +190,7 @@ const PensionRetraite = (props) => {
     };
   
     const postDocument = async () => {
-      const url = "http://192.168.1.185:5000/api/pensionretraite/ajout";
+      const url = `${path}/api/pensionretraite/ajout`;
       const fileUri = releveService.uri;
       const newImageUri = "file:///" + fileUri.split("file:/").join("");
       const formData = new FormData();
@@ -208,7 +208,7 @@ const PensionRetraite = (props) => {
           "Content-Type": "multipart/form-data",
         },
       };
-      console.log(formData);
+      /* console.log(formData); */
   
       let response = await fetch(url, options);
   

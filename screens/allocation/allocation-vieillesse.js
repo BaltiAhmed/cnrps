@@ -114,7 +114,7 @@ const AllocationVieillesse = (props) => {
   const auth = useContext(Authcontext);
 
   const uploadarreteMiseRetraite = async (id) => {
-    const url = `http://192.168.1.185:5000/api/allocation/updateArreteMiseRetraite/${id}`;
+    const url = `${path}/api/allocation/updateArreteMiseRetraite/${id}`;
     const fileUri = arreteMiseRetraite.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -143,7 +143,7 @@ const AllocationVieillesse = (props) => {
   };
 
   const uploadreleveServices = async (id) => {
-    const url = `http://192.168.1.185:5000/api/allocation/updateReleveServices/${id}`;
+    const url = `${path}/api/allocation/updateReleveServices/${id}`;
     const fileUri = releveServices.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -172,7 +172,7 @@ const AllocationVieillesse = (props) => {
   };
 
   const uploadphotoIdentite = async (id) => {
-    const url = `http://192.168.1.185:5000/api/allocation/updateextraitNaissance/${id}`;
+    const url = `${path}/api/allocation/updateextraitNaissance/${id}`;
     const fileUri = photoIdentite.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -201,7 +201,7 @@ const AllocationVieillesse = (props) => {
   };
 
   const uploadextraitNaissance = async (id) => {
-    const url = `http://192.168.1.185:5000/api/allocation/updatephotoIdentite/${id}`;
+    const url = `${path}/api/allocation/updatephotoIdentite/${id}`;
     const fileUri = extraitNaissance.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -230,7 +230,7 @@ const AllocationVieillesse = (props) => {
   };
 
   const postDocument = async () => {
-    const url = "http://192.168.1.185:5000/api/allocation/ajout";
+    const url = `${path}/api/allocation/ajout`;
     const fileUri = demandeAllocation.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();

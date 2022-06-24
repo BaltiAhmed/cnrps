@@ -101,7 +101,7 @@ const PensionConjoin = (props) => {
   const auth = useContext(Authcontext);
 
   const uploadacteNotorieteDeces = async (id) => {
-    const url = `http://192.168.1.185:5000/api/pensionConjoint/updateacteNotorieteDeces/${id}`;
+    const url = `${path}/api/pensionConjoint/updateacteNotorieteDeces/${id}`;
     const fileUri = acteNotorieteDeces.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -132,7 +132,7 @@ const PensionConjoin = (props) => {
   
 
   const uploadphotoIdentite = async (id) => {
-    const url = `http://192.168.1.185:5000/api/pensionConjoint/updatephotoIdentite/${id}`;
+    const url = `${path}/api/pensionConjoint/updatephotoIdentite/${id}`;
     const fileUri = photoIdentite.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -161,7 +161,7 @@ const PensionConjoin = (props) => {
   };
 
   const uploadextraitNaissance = async (id) => {
-    const url = `http://192.168.1.185:5000/api/pensionConjoint/updateextraitNaissConjoint/${id}`;
+    const url = `${path}/api/pensionConjoint/updateextraitNaissConjoint/${id}`;
     const fileUri = extraitNaissance.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -190,7 +190,7 @@ const PensionConjoin = (props) => {
   };
 
   const postDocument = async () => {
-    const url = "http://192.168.1.185:5000/api/pensionConjoint/ajout";
+    const url = `${path}/api/pensionConjoint/ajout`;
     const fileUri = ficheRenseignemnt.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();

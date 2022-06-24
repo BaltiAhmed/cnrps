@@ -45,7 +45,7 @@ const AttestationAffiliation = (props) => {
 
   const submit = async () => {
     let response = await fetch(
-      "http://192.168.42.17:5000/api/attestationAffiliation/ajout",
+      `${path}/api/attestationAffiliation/ajout`,
       {
         method: "POST",
         headers: {

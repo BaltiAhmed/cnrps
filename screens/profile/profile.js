@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -7,11 +7,14 @@ import {
   Button,
   TextInput,
   Alert,
+  TouchableOpacity,
 } from "react-native";
 import Card from "../../components/Card";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import Error from "../../models/error";
 import Success from "../../models/success";
+import AntDesign from "react-native-vector-icons/AntDesign";
+import { Authcontext } from "../../context/auth-context";
 
 const Profile = (props) => {
   const [email, setEmail] = useState();
@@ -21,12 +24,14 @@ const Profile = (props) => {
   const [adresse, setAdresse] = useState();
   const [tel, setTel] = useState();
   const [date, setDate] = useState();
+  const [Matricule, setMatricule] = useState();
 
   const [error, seterror] = useState(null);
   const [success, setsuccess] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+  const auth = useContext(Authcontext);
 
   const showDatePicker = () => {
     setDatePickerVisibility(true);
@@ -41,6 +46,29 @@ const Profile = (props) => {
     hideDatePicker();
   };
 
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    const sendRequest = async () => {
+      const response = await fetch(`${path}/api/utilisateur/${auth.userId}`);
+
+      const responseData = await response.json();
+      if (!response.ok) {
+        throw new Error(responseData.message);
+      }
+
+      setList(responseData.utilisateur);
+      setNom(responseData.utilisateur.nom);
+      setPrenom(responseData.utilisateur.prenom);
+      setMatricule(responseData.utilisateur.matriculeCNRPS);
+      setEmail(responseData.utilisateur.email);
+      setAdresse(responseData.utilisateur.adresse);
+      setTel(responseData.utilisateur.tel);
+      setDate(responseData.utilisateur.Dnaissance);
+    };
+    sendRequest();
+  }, []);
+
   const submit = async () => {
     console.log(email);
     console.log(password);
@@ -50,24 +78,21 @@ const Profile = (props) => {
     console.log(tel);
     console.log(date);
 
-    let response = await fetch(
-      "http://192.168.1.185:5000/api/utilisateur/signup",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: email,
-          password: password,
-          nom: nom,
-          prenom: prenom,
-          adresse: adresse,
-          tel: tel,
-          Dnaissance: date,
-        }),
-      }
-    );
+    let response = await fetch(`${path}/api/utilisateur/${auth.userId}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+        nom: nom,
+        prenom: prenom,
+        adresse: adresse,
+        tel: tel,
+        Dnaissance: date,
+      }),
+    });
     let responsedata = await response.json();
     if (!response.ok) {
       Alert.alert("Message", responsedata.message, [{ text: "fermer" }]);
@@ -79,6 +104,29 @@ const Profile = (props) => {
   return (
     <View style={{ backgroundColor: "#4ebaaa", height: "100%" }}>
       <Card style={styles.authContainer}>
+        <TouchableOpacity
+          style={{
+            marginTop: "5%",
+            borderRadius: 10,
+            borderColor: "#be0000",
+            paddingTop: "2.5%",
+          }}
+          onPress={() => auth.logout()}
+        >
+          <View style={{ alignSelf: "center", flexDirection: "row" }}>
+            <AntDesign name="logout" size={30} color={"#be0000"} />
+            <Text
+              style={{
+                fontSize: 18,
+                marginTop: "1%",
+                marginLeft: "4%",
+                color: "#be0000",
+              }}
+            >
+              Déconnextion
+            </Text>
+          </View>
+        </TouchableOpacity>
         <Success success={success} />
         <Error error={error} />
         <ScrollView>
@@ -105,6 +153,22 @@ const Profile = (props) => {
               value={prenom}
               onChangeText={(text) => {
                 setPrenom(text);
+              }}
+              keyboardAppearance="light"
+              autoCapitalize="none"
+              placeholder="prenom"
+              placeholderTextColor="dark"
+              label="E-mail"
+            />
+          </View>
+
+          <View style={styles.formControl}>
+            <Text style={styles.label}>Matricule CNRPS</Text>
+            <TextInput
+              style={styles.input}
+              value={Matricule}
+              onChangeText={(text) => {
+                setMatricule(text);
               }}
               keyboardAppearance="light"
               autoCapitalize="none"
@@ -198,7 +262,11 @@ const Profile = (props) => {
           </View>
 
           <View style={styles.buttonContainer}>
-            <Button title="Mettre à jour le profile" color="#005b4f" onPress={submit} />
+            <Button
+              title="Mettre à jour le profile"
+              color="#005b4f"
+              onPress={submit}
+            />
           </View>
         </ScrollView>
       </Card>

@@ -140,7 +140,7 @@ const PretUniversiatire = (props) => {
   const auth = useContext(Authcontext);
 
   const uploadcertificatInscrit = async (id) => {
-    const url = `http://192.168.1.185:5000/api/pretUniversitaire/updatecertificatInscrit/${id}`;
+    const url = `${path}/api/pretUniversitaire/updatecertificatInscrit/${id}`;
     const fileUri = certificatInscrit.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -169,7 +169,7 @@ const PretUniversiatire = (props) => {
   };
 
   const uploaddeclarationREV = async (id) => {
-    const url = `http://192.168.1.185:5000/api/pretUniversitaire/updatedeclarationREV/${id}`;
+    const url = `${path}/api/pretUniversitaire/updatedeclarationREV/${id}`;
     const fileUri = declarationREV.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -198,7 +198,7 @@ const PretUniversiatire = (props) => {
   };
 
   const uploadattestationSalaire = async (id) => {
-    const url = `http://192.168.1.185:5000/api/pretUniversitaire/updateattestationSalaire/${id}`;
+    const url = `${path}/api/pretUniversitaire/updateattestationSalaire/${id}`;
     const fileUri = attestationSalaire.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -227,7 +227,7 @@ const PretUniversiatire = (props) => {
   };
 
   const uploadcopieCINEtudiant = async (id) => {
-    const url = `http://192.168.1.185:5000/api/pretUniversitaire/updatecopieCINEtudiant/${id}`;
+    const url = `${path}/api/pretUniversitaire/updatecopieCINEtudiant/${id}`;
     const fileUri = copieCINEtudiant.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -256,7 +256,7 @@ const PretUniversiatire = (props) => {
   };
 
   const uploadphotoIdentite = async (id) => {
-    const url = `http://192.168.1.185:5000/api/pretUniversitaire/updatecopieCINParent/${id}`;
+    const url = `${path}/api/pretUniversitaire/updatecopieCINParent/${id}`;
     const fileUri = photoIdentite.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -285,7 +285,7 @@ const PretUniversiatire = (props) => {
   };
 
   const uploaderib = async (id) => {
-    const url = `http://192.168.1.185:5000/api/pretUniversitaire/updaterib/${id}`;
+    const url = `${path}/api/pretUniversitaire/updaterib/${id}`;
     const fileUri = rib.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -314,7 +314,7 @@ const PretUniversiatire = (props) => {
   };
 
   const postDocument = async () => {
-    const url = "http://192.168.1.185:5000/api/pretUniversitaire/ajout";
+    const url = `${path}/api/pretUniversitaire/ajout`;
     const fileUri = demandepret.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();

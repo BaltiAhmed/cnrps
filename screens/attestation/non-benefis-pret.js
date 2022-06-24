@@ -45,7 +45,7 @@ const nonBenifisPret = (props) => {
 
   const submit = async () => {
     let response = await fetch(
-      "http://192.168.42.17:5000/api/nonBenifisPret/ajout",
+      `${path}/api/nonBenifisPret/ajout`,
       {
         method: "POST",
         headers: {

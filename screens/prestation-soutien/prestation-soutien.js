@@ -157,7 +157,7 @@ const PrestationSoutien = (props) => {
   const auth = useContext(Authcontext);
 
   const uploadcopieCINconjoint = async (id) => {
-    const url = `http://192.168.1.185:5000/api/prestationSoutien/updatecopieCINconjoint/${id}`;
+    const url = `${path}/api/prestationSoutien/updatecopieCINconjoint/${id}`;
     const fileUri = copieCINconjoint.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -186,7 +186,7 @@ const PrestationSoutien = (props) => {
   };
 
   const uploadcopieCINaffilie = async (id) => {
-    const url = `http://192.168.1.185:5000/api/prestationSoutien/updatecopieCINaffilie/${id}`;
+    const url = `${path}/api/prestationSoutien/updatecopieCINaffilie/${id}`;
     const fileUri = copieCINaffilie.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -215,7 +215,7 @@ const PrestationSoutien = (props) => {
   };
 
   const uploadcopieContratLocation = async (id) => {
-    const url = `http://192.168.1.185:5000/api/prestationSoutien/updatecopieContratLocation/${id}`;
+    const url = `${path}/api/prestationSoutien/updatecopieContratLocation/${id}`;
     const fileUri = copieContratLocation.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -244,7 +244,7 @@ const PrestationSoutien = (props) => {
   };
 
   const uploadcopieDecisionMutation = async (id) => {
-    const url = `http://192.168.1.185:5000/api/prestationSoutien/updatecopieDecisionMutation/${id}`;
+    const url = `${path}/api/prestationSoutien/updatecopieDecisionMutation/${id}`;
     const fileUri = copieDecisionMutation.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -273,7 +273,7 @@ const PrestationSoutien = (props) => {
   };
 
   const uploadextraitNaissanceEnfant = async (id) => {
-    const url = `http://192.168.1.185:5000/api/prestationSoutien/updateextraitNaissanceEnfant/${id}`;
+    const url = `${path}/api/prestationSoutien/updateextraitNaissanceEnfant/${id}`;
     const fileUri = extraitNaissanceEnfant.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -302,7 +302,7 @@ const PrestationSoutien = (props) => {
   };
 
   const uploadattestationSalaireConjoint = async (id) => {
-    const url = `http://192.168.1.185:5000/api/prestationSoutien/updateattestaionSalConjoint/${id}`;
+    const url = `${path}/api/prestationSoutien/updateattestaionSalConjoint/${id}`;
     const fileUri = attestationSalaireConjoint.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -331,7 +331,7 @@ const PrestationSoutien = (props) => {
   };
 
   const uploadattestaionSalAffilie = async (id) => {
-    const url = `http://192.168.1.185:5000/api/prestationSoutien/updateattestaionSalAffilie/${id}`;
+    const url = `${path}/api/prestationSoutien/updateattestaionSalAffilie/${id}`;
     const fileUri = attestaionSalAffilie.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -360,7 +360,7 @@ const PrestationSoutien = (props) => {
   };
 
   const postDocument = async () => {
-    const url = "http://192.168.1.185:5000/api/prestationSoutien/ajout";
+    const url = `${path}/api/prestationSoutien/ajout`;
     const fileUri = demandeLocation.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
